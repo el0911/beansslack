@@ -8,51 +8,51 @@ const workspaceAuth = require('./src/database/auth/store_user_workspace_install'
 const db = require('./src/database/db');
 const dbQuery = require('./src/database/find_user');
 const customRoutes = require('./src/utils/custom_routes');
-const { sendText, sendError } = require('./src/utils/slackFunc');
-const { decodeToken } = require('./src/utils/customFunc');
+const { sendText } = require('./src/utils/slackFunc');
+// const { decodeToken } = require('./src/utils/customFunc');
 // WebClient instantiates a client that can call API methods
 // When using Bolt, you can use either `app.client` or the `client` passed to listeners.
 
 // ID of the channel you want to send the message to
-const receiver = new ExpressReceiver({
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
-});
+// const receiver = new ExpressReceiver({
+//   signingSecret: process.env.SLACK_SIGNING_SECRET,
+// });
 let app = false;
-receiver.router.use(bodyParser.urlencoded({ extended: true }));
-receiver.router.use(bodyParser.json());
+// receiver.router.use(bodyParser.urlencoded({ extended: true }));
+// receiver.router.use(bodyParser.json());
 
-receiver.router.post('/slack/error/notify', async (req, res) => {
-  try {
-    const { auth } = req.body;
-    // VALIDATE AUTH
-    const { user_id } = decodeToken(auth);
+// receiver.router.post('/slack/error/notify', async (req, res) => {
+//   try {
+//     const { auth } = req.body;
+//     // VALIDATE AUTH
+//     const { user_id } = decodeToken(auth);
 
-    ///
-    // FIND USER DETAILS AND VALIDATE
-    const user = await dbQuery.findAppUser({ _id: user_id }, {
-      populate: [
-        'slackBot',
-      ],
-    });
+//     ///
+//     // FIND USER DETAILS AND VALIDATE
+//     const user = await dbQuery.findAppUser({ _id: user_id }, {
+//       populate: [
+//         'slackBot',
+//       ],
+//     });
 
-    if (!user) {
-      throw new Error('NO USER');
-    }
+//     if (!user) {
+//       throw new Error('NO USER');
+//     }
 
-    ///
-    /// GET USER DETAILS AND SEND ERROR
-    const { slackBot } = user;
-    console.log({ slackBot });
+//     ///
+//     /// GET USER DETAILS AND SEND ERROR
+//     const { slackBot } = user;
+//     console.log({ slackBot });
 
-    sendError(slackBot.user.id, slackBot.token, user.email, req.body);
-    res.end(
-      'true',
-    );
-  } catch (error) {
-    console.log(error);
-    res.end('false');
-  }
-});
+//     sendError(slackBot.user.id, slackBot.token, user.email, req.body);
+//     res.end(
+//       'true',
+//     );
+//   } catch (error) {
+//     console.log(error);
+//     res.end('false');
+//   }
+// });
 
 app = new App({
   logLevel: LogLevel.DEBUG,
@@ -135,7 +135,7 @@ registerListeners(app);
 (async () => {
   try {
     console.log(process.env, process.env.PORT);
-    await app.start(`${process.env.PORT}`);
+    await app.start(`${process.env.PORT || 3000}`);
 
     console.log('⚡️ Bolt app is running! ⚡️');
     db.connect();
