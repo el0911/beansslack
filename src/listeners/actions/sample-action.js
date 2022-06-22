@@ -14,6 +14,7 @@ const emailLoginAction = async ({ ack, body, say }) => {
     const user = await findAppUser({ email });
 
     if (user) {
+      console.log('user.user', user, email);
       const tempSlackToken = generateToken(user._id);
       sendAnEmail(email, 'sendingToken', { token: tempSlackToken, subject: 'Slack Login Token' });
 
