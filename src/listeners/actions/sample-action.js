@@ -96,6 +96,8 @@ const loginTokenAction = async (payload) => {
       throw new Error('No slack app');
     }
 
+    console.log('decodeToken(token)===>', decodeToken(token));
+
     const user = await updateAppUser({ _id: userId }, { slackBot: slack._id });
 
     if (!user) {

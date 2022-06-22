@@ -6,7 +6,7 @@ const generateToken = (user) => {
     { user_id: user._id },
     process.env.TOKEN_KEY,
     {
-      expiresIn: '1h',
+      expiresIn: 60000,
     },
   );
 
