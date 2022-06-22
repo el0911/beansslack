@@ -134,12 +134,12 @@ registerListeners(app);
 /** Start Bolt App */
 (async () => {
   try {
-    console.log(process.env, process.env.PORT);
-    await app.start();
-
-    console.log('⚡️ Bolt app is running! ⚡️');
-    db.connect();
-    console.log('DB is connected.');
+    app.start().then((data) => {
+      console.log({ data });
+      console.log('⚡️ Bolt app is running! ⚡️');
+      db.connect();
+      console.log('DB is connected.');
+    });
   } catch (error) {
     console.error('Unable to start App', error);
   }
