@@ -1,7 +1,6 @@
 require('dotenv').config();
 
-const { App, LogLevel, ExpressReceiver } = require('@slack/bolt');
-const bodyParser = require('body-parser');
+const { App, LogLevel } = require('@slack/bolt');
 const { registerListeners } = require('./src/listeners');
 const orgAuth = require('./src/database/auth/store_user_org_install');
 const workspaceAuth = require('./src/database/auth/store_user_workspace_install');
