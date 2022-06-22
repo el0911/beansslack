@@ -135,7 +135,7 @@ registerListeners(app);
 (async () => {
   try {
     console.log(process.env, process.env.PORT);
-    await app.start(process.env.PORT);
+    await app.start(`${process.env.PORT}`);
 
     console.log('⚡️ Bolt app is running! ⚡️');
     db.connect();
