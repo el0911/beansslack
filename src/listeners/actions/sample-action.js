@@ -79,7 +79,7 @@ const loginTokenAction = async (payload) => {
 
     const { value: token } = body.state.values.login_process.login_process_token_enter;
     const { id: slackBotUser } = body.user;
-    const { user_id: userId, ...rest } = decodeToken(token);
+    const { user_id: userId } = decodeToken(token);
     // update the user with slack objects
     const search = {
       'user.id': slackBotUser,

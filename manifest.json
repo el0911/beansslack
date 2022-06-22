@@ -10,13 +10,13 @@
         "slash_commands": [
             {
                 "command": "/beansio",
-                "url": "https://0606-31-205-192-50.ngrok.io/slack/events",
+                "url": "https://beansslack.herokuapp.com/slack/events",
                 "description": "test",
                 "should_escape": false
             },
             {
                 "command": "/login",
-                "url": "https://0606-31-205-192-50.ngrok.io/slack/events",
+                "url": "https://beansslack.herokuapp.com/slack/events",
                 "description": "Logs a user in",
                 "should_escape": false
             }
@@ -24,7 +24,7 @@
     },
     "oauth_config": {
         "redirect_urls": [
-            "https://0606-31-205-192-50.ngrok.io/slack/oauth_redirect"
+            "https://beansslack.herokuapp.com/slack/oauth_redirect"
         ],
         "scopes": {
             "bot": [
@@ -45,7 +45,7 @@
         },
         "interactivity": {
             "is_enabled": true,
-            "request_url": "https://0606-31-205-192-50.ngrok.io/slack/message_action"
+            "request_url": "https://beansslack.herokuapp.com/slack/message_action"
         },
         "org_deploy_enabled": false,
         "socket_mode_enabled": true,
