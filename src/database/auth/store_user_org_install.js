@@ -3,7 +3,7 @@ const model = require('../db');
 const saveUserOrgInstall = async (installation) => {
   try {
     const resp = await model.User.updateOne(
-      { _id: installation.enterprise.id },
+      { 'enterprise.id': installation.enterprise.id },
       {
         team: 'null',
         enterprise: {
@@ -16,6 +16,7 @@ const saveUserOrgInstall = async (installation) => {
           id: installation.user.id,
         },
         tokenType: installation.tokenType,
+        token: installation.bot.token || installation.user.token,
         isEnterpriseInstall: installation.isEnterpriseInstall,
         appId: installation.appId,
         authVersion: installation.authVersion,

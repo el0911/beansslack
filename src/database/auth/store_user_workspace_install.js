@@ -3,7 +3,7 @@ const model = require('../db');
 const saveUserWorkspaceInstall = async (installation) => {
   try {
     const resp = await model.User.updateOne(
-      { _id: installation.team.id },
+      { 'team.id': installation.team.id },
       {
         team: { id: installation.team.id, name: installation.team.name },
         // entperise id is null on workspace install
@@ -13,6 +13,7 @@ const saveUserWorkspaceInstall = async (installation) => {
         tokenType: installation.tokenType,
         isEnterpriseInstall: installation.isEnterpriseInstall,
         appId: installation.appId,
+        token: installation.bot.token || installation.user.token,
         authVersion: installation.authVersion,
         bot: {
           scopes: installation.bot.scopes,
