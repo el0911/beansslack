@@ -61,6 +61,7 @@ app = new App({
   clientSecret: process.env.SLACK_CLIENT_SECRET,
   stateSecret: 'horea-is-a-human',
   socketMode: true,
+  port: process.env.PORT || 3000,
   appToken: process.env.SLACK_APP_TOKEN,
   customRoutes: customRoutes.customRoutes,
   installerOptions: {
@@ -135,7 +136,7 @@ registerListeners(app);
 (async () => {
   try {
     console.log(process.env, process.env.PORT);
-    await app.start(process.env.PORT || 3000);
+    await app.start();
 
     console.log('⚡️ Bolt app is running! ⚡️');
     db.connect();
