@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 
 const generateToken = (user) => {
+  // eslint-disable-next-line no-underscore-dangle
+  console.log(' { user_id: user._id } ====>', { user_id: user._id });
   const token = jwt.sign(
     // eslint-disable-next-line no-underscore-dangle
     { user_id: user._id },
