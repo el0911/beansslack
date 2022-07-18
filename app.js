@@ -8,50 +8,8 @@ const db = require('./src/database/db');
 const dbQuery = require('./src/database/find_user');
 const customRoutes = require('./src/utils/custom_routes');
 const { sendText } = require('./src/utils/slackFunc');
-// const { decodeToken } = require('./src/utils/customFunc');
-// WebClient instantiates a client that can call API methods
-// When using Bolt, you can use either `app.client` or the `client` passed to listeners.
 
-// ID of the channel you want to send the message to
-// const receiver = new ExpressReceiver({
-//   signingSecret: process.env.SLACK_SIGNING_SECRET,
-// });
 let app = false;
-// receiver.router.use(bodyParser.urlencoded({ extended: true }));
-// receiver.router.use(bodyParser.json());
-
-// receiver.router.post('/slack/error/notify', async (req, res) => {
-//   try {
-//     const { auth } = req.body;
-//     // VALIDATE AUTH
-//     const { user_id } = decodeToken(auth);
-
-//     ///
-//     // FIND USER DETAILS AND VALIDATE
-//     const user = await dbQuery.findAppUser({ _id: user_id }, {
-//       populate: [
-//         'slackBot',
-//       ],
-//     });
-
-//     if (!user) {
-//       throw new Error('NO USER');
-//     }
-
-//     ///
-//     /// GET USER DETAILS AND SEND ERROR
-//     const { slackBot } = user;
-//     console.log({ slackBot });
-
-//     sendError(slackBot.user.id, slackBot.token, user.email, req.body);
-//     res.end(
-//       'true',
-//     );
-//   } catch (error) {
-//     console.log(error);
-//     res.end('false');
-//   }
-// });
 
 app = new App({
   logLevel: LogLevel.DEBUG,

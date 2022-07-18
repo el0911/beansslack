@@ -29,7 +29,7 @@ const Templates = {
 
     <p >Hello!!</a>
 
-    <p>Its sad but we've found a new bug log into Beans to check it out </p>
+    <p>Its sad but we've found a new bug log into Beansio.app to check it out </p>
         
     </p>
 
