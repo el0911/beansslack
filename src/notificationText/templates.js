@@ -28,7 +28,7 @@ const Templates = {
     <p style="margin:0 0 16px;">
 
         <p >Hello!!</a>
-          <p>Its sad but we've found a new bug log into <a href="https://www.beansio.app" class="">Beansio.app</a> to check it out </p>
+          <p>It's sad but we've found a new bug on your app <spam style="color:green">////*/appName/*///</spam> log into <a href="https://www.beansio.app" class="">Beansio.app</a> to check it out </p>
         </p>
 
         <div style="background:silver;padding:40px 20px;font-family: monospace;" class="sc-ftvSup kQceQu">
