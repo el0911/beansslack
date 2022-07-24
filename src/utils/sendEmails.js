@@ -9,7 +9,7 @@ const { templatIntoLayouteMail } = require('../notificationText');
 
 const mailgun = new Mail(formData);
 
-const MAILINSTANCE = mailgun.client({ username: 'Bsnaija', key: process.env.MAIL_API_KEY || 'key-68596f4495384e353965c584ad1d6fec' });
+const MAILINSTANCE = mailgun.client({ username: 'Bsnaija', key: process.env.MAIL_API_KEY });
 
 const sendAnEmail = async (emailAddress, mailTemplate, messageData) => {
   // const firstFile = {
