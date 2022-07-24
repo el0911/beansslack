@@ -72,10 +72,14 @@ const sendError = (channelId, token, email, data) => {
       ],
     });
 
+    console.log({
+      data,
+    });
+
     const stack = (data.error || '').split(/\r?\n/).map((text, i) => (i !== 0 ? `<p>${i})  ${text}</p>` : ''));
 
     // email send
-    sendAnEmail(email, 'sendinErrorNotification', { subject: 'We found a bug', errorTitle: data.topic || 'Error', error: data.error || ' <p> 1) at Error</p>', appName: data.project || 'App' });
+    sendAnEmail(email, 'sendinErrorNotification', { subject: 'We found a bug', errorTitle: data.topic || 'Error', error: stack || ' <p> 1) at Error</p>', appName: data.project || 'App' });
   } catch (error) {
     console.log(error);
   }
