@@ -73,7 +73,7 @@ const sendError = (channelId, token, email, data) => {
     });
 
     // email send
-    sendAnEmail(email, 'sendinErrorNotification', { subject: 'We found a bug' });
+    sendAnEmail(email, 'sendinErrorNotification', { subject: 'We found a bug', errorTitle: data.errorTitle || 'Error', error: data.error || ' <p> 1) at Error</p>' });
   } catch (error) {
     console.log(error);
   }

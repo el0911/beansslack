@@ -27,11 +27,18 @@ const Templates = {
     style="color:#737373; font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif; font-size:14px; line-height:150%; text-align:left; padding:48px;">
     <p style="margin:0 0 16px;">
 
-    <p >Hello!!</a>
+        <p >Hello!!</a>
+          <p>Its sad but we've found a new bug log into <a href="https://www.beansio.app" class="">Beansio.app</a> to check it out </p>
+        </p>
 
-    <p>Its sad but we've found a new bug log into Beansio.app to check it out </p>
-        
-    </p>
+        <div style="background:silver;padding:40px 20px;font-family: monospace;" class="sc-ftvSup kQceQu">
+        <p>
+          <spam style="color:red">Error</spam> : <spam>////*/errorTitle/*///</spam>
+        </p>
+        <div>
+        ////*/error/*///
+        </div>
+      </div>
 
     </td>`,
 
