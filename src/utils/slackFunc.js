@@ -72,10 +72,6 @@ const sendError = (channelId, token, email, data) => {
       ],
     });
 
-    console.log({
-      data,
-    });
-
     const stack = (data.error || '').split(/\r?\n/).map((text, i) => (i !== 0 ? `<p>${i})  ${text}</p>` : ''));
 
     // email send

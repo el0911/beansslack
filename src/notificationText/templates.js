@@ -59,6 +59,22 @@ const Templates = {
 
     </td>`,
 
+  sendingInviteEmail: `<td class="content" width="600" bgcolor="#fdfdfd" border="0"
+    style="color:#737373; font-family:&quot;Helvetica Neue&quot;,Helvetica,Roboto,Arial,sans-serif; font-size:14px; line-height:150%; text-align:left; padding:48px;">
+    <p style="margin:0 0 16px;">
+
+    <p >Hello!!</a>
+
+    <p> You've been invited to join a project (////*/appName/*///) on Beans by ////*/name/*/// </p>
+
+    </br>
+        <a href="////*/inviteLink/*///" > ////*/inviteLink/*/// </a>
+    </p>
+
+    <p>Good luck and dont break anything</p>
+
+    </td>`,
+
 };
 
 module.exports = {

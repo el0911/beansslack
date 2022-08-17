@@ -2,6 +2,7 @@ const getRawBody = require('raw-body');
 const manifest = require('../../manifest.json');
 const { findAppUser } = require('../database/find_user');
 const { decodeToken } = require('./customFunc');
+const { sendAnEmail } = require('./sendEmails');
 const { sendError } = require('./slackFunc');
 
 const oauthRedirect = manifest.oauth_config.redirect_urls[0];
@@ -58,6 +59,51 @@ const customRoutes = [
         console.log({ slackBot });
 
         sendError(slackBot.user.id, slackBot.token, user.email, body);
+        res.end(
+          'true',
+        );
+      } catch (error) {
+        console.log(error);
+        res.end('false');
+      }
+    },
+  },
+  {
+    path: '/slack/notification/invite', /// change later
+    method: ['POST'],
+    handler: async (req, res) => {
+      try {
+        const rawBody = await getRawBody(req);
+        const body = JSON.parse(rawBody.toString());
+
+        const { auth, email, app, iniviteId } = body;
+        // VALIDATE AUTH
+        const { user_id } = decodeToken(auth);
+
+        ///
+        // FIND USER DETAILS AND VALIDATE
+        // eslint-disable-next-line no-underscore-dangle
+        const user_ = await findAppUser({ _id: user_id }, {
+          populate: [
+            'slackBot',
+          ],
+        });
+
+        if (!user_) {
+          throw new Error('NO USER');
+        }
+
+        // eslint-disable-next-line no-underscore-dangle
+        const { name } = user_._doc;
+
+        ///
+        sendAnEmail(email, 'sendingInviteEmail', {
+          subject: 'Someone thinks your good enough to see their logs',
+          name,
+          appName: app,
+          inviteLink: `${process.env.BEANS_FRONTEND}/invite/accept/${iniviteId}`,
+        });
+
         res.end(
           'true',
         );

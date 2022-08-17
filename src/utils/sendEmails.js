@@ -12,6 +12,9 @@ const mailgun = new Mail(formData);
 const MAILINSTANCE = mailgun.client({ username: 'Bsnaija', key: process.env.MAIL_API_KEY });
 
 const sendAnEmail = async (emailAddress, mailTemplate, messageData) => {
+  console.log({
+    messageData,
+  });
   // const firstFile = {
   //   filename: 'banner.png',
   //   data: await fsPromises.readFile(filepath),
