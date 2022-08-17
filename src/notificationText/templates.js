@@ -17,7 +17,7 @@ const Templates = {
             <tr>
                 <td width="600" border="0"
                     style="padding:0 48px 48px 48px; color:#707070; font-family:Arial; font-size:12px; line-height:125%; text-align:center;">
-                    <p>@Coffee beans 2021</p>
+                    <p>@Coffee beans 2022</p>
                 </td>
             </tr>
         </table>
